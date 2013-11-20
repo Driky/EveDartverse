@@ -1,0 +1,7 @@
+name: eveDart
+description: A sample web application
+dependencies:
+  angular: any
+  async: any
+  browser: any
+  http: any

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>EveDart</title>
+    <link rel="stylesheet" href="evedart.css">
+  </head>
+  <body>
+    <h1>EveDart</h1>
+    <div accountmanager>
+        <strong>Url:</strong> {{account.url}}
+        <strong>keyID:</strong> {{account.parameters['keyID']}}
+        <strong>vCode:</strong> {{account.parameters['vCode']}}
+        <form>
+            <input>
+        </form>
+    </div>
+    <script type="application/dart" src="evedart.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
