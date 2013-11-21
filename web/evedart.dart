@@ -17,33 +17,37 @@ class AccountManager extends RequestManager {
   }
   
   getInfo(){
-    return this.executeRequest(this.url, this.parameters);
+    this.executeRequest(this.url, this.parameters);
+    return this.requestResult;
   }
 }
 
 class RequestManager{
+  
+  String requestResult = null;
   RequestManager(){
     
   }
   
-  executeRequest(String request, Map arguments){
-    String requestResult = null;
+  void setResult(String res){
+    this.requestResult = res;
+  }
+  
+  void executeRequest(String request, Map arguments){
     String fullRequest = request + '?';
     
     arguments.forEach((arg,value) {
       fullRequest += arg + '=' + value + '&';
     });
     
-    fullRequest = Uri.encodeFull(fullRequest);
-    
+    fullRequest = "http://www.kiwi-corporation.com/driky/eveDartverse/request.php?url=" + Uri.encodeFull(fullRequest);
+    print(fullRequest);
     HttpRequest.getString(fullRequest)
       .then((String result) { 
-        requestResult = result; })
+         this.setResult(result);})
           .catchError((e) {
             print(e);
           });
-    
-    return requestResult;
   }
 }
 
